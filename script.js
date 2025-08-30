@@ -140,7 +140,11 @@ const resultDiv = document.getElementById("result");
 // Get today's date
 const today = new Date();
 const dayIndex = today.getDay();
-const dateStr = today.toISOString().split("T")[0];
+// Build local date string in YYYY-MM-DD format
+const year = today.getFullYear();
+const month = String(today.getMonth() + 1).padStart(2, "0"); // Month is 0-indexed
+const day = String(today.getDate()).padStart(2, "0");
+const dateStr = `${year}-${month}-${day}`;
 
 // Select advice: day-specific or fallback
 let advices = adviceCatalog[dayIndex];
